@@ -1,0 +1,15 @@
+.fade-in-out {
+  animation: fadeInOut 3s ease-in-out infinite; /* 3s là thời gian fade, infinite là lặp lại liên tục */
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

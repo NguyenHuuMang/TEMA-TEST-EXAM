@@ -1,0 +1,77 @@
+.about-us {
+  .left-about-us {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+  .title-about-us {
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 60px;
+    color: #000;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    text-align: start;
+  }
+  .description-about-us {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #757575;
+    justify-content: center;
+  }
+  .user-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #000;
+  }
+  .user-system {
+    font-size: 80px;
+    line-height: 100%;
+    font-weight: 700;
+    color: #079bee;
+  }
+  .unit {
+    font-size: 40px;
+    line-height: 100%;
+    font-weight: 700;
+    color: #079bee;
+  }
+
+  .right-about-us {
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 113px 75px;
+  }
+
+  .space-right-about-us-item {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .gap-about-us-item {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+  .title-item-right {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    line-height: 30px;
+  }
+  .description-item-right {
+    font-size: 14px;
+    color: #757575;
+    line-height: 140%;
+    font-weight: 400;
+  }
+}

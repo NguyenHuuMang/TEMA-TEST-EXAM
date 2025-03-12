@@ -19,7 +19,7 @@ const CountdownTimer = ({ targetDate }: any) => {
     return timeLeft;
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<any>(calculateTimeLeft());
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -39,21 +39,21 @@ const CountdownTimer = ({ targetDate }: any) => {
         <span className="time">{addLeadingZero(1 || 0)}</span>
         <span className="label">Ngày</span>
       </div>
-      <span className="separator">:</span>
-      {/* <div className="timer-item">
+      <span className="separator d-flex h-100 align-self-center">:</span>
+      <div className="timer-item">
         <span className="time">{addLeadingZero(timeLeft.hours || 0)}</span>
         <span className="label">Giờ</span>
       </div>
-      <span className="separator">:</span>
+      <span className="separator d-flex h-100 align-self-center">:</span>
       <div className="timer-item">
         <span className="time">{addLeadingZero(timeLeft.minutes || 0)}</span>
         <span className="label">Phút</span>
       </div>
-      <span className="separator">:</span>
+      <span className="separator d-flex h-100 align-self-center">:</span>
       <div className="timer-item">
         <span className="time">{addLeadingZero(timeLeft.seconds || 0)}</span>
         <span className="label">Giây</span>
-      </div> */}
+      </div>
     </div>
   );
 };
