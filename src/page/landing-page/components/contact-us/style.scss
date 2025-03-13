@@ -76,11 +76,18 @@
   }
 }
 
-@media (min-width: 1280) {
+@media (min-width: 1280px) {
   .calc-width {
     width: 50%;
     padding-left: 30px;
     padding-right: 30px;
+  }
+  .responsive-about-us {
+    display: flex;
+    flex-direction: row;
+  }
+  .grid-responsive-about-us {
+    width: 49%;
   }
 }
 
@@ -89,5 +96,55 @@
     width: 100%;
     padding-left: 30px;
     padding-right: 30px;
+  }
+  .responsive-about-us {
+    display: flex;
+    flex-direction: row;
+  }
+  .grid-responsive-about-us {
+    width: 49%;
+  }
+}
+
+@media (min-width: 245px) and (max-width: 959px) {
+  .calc-width {
+    width: 100%;
+  }
+  .description-about-us {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .responsive-about-us {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-responsive-about-us {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .info-user-game-responsive {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 24px !important;
+  }
+}
+
+@media (min-width: 245px) and (max-width: 680px) {
+  .about-us {
+    .user-system {
+      font-size: 40px;
+    }
+    .unit {
+      font-size: 40px;
+    }
+    .user-title {
+      font-size: 24px;
+    }
+    .right-about-us {
+      padding: 20px 20px;
+    }
   }
 }

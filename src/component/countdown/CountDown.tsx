@@ -1,4 +1,3 @@
-// components/CountdownTimer.jsx
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 

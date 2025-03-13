@@ -66,6 +66,89 @@
   opacity: 0.8;
 }
 
+.game-card-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 40px;
+}
+
+.staggered-grid .game-card-wrapper:nth-child(-n + 4) {
+  margin-bottom: 0;
+}
+
+////
+///
+///
+.game-list-mobile {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.game-list-desktop {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.even-card {
+  margin-top: 12px;
+}
+
+.game-card-mobile {
+  position: relative;
+  width: 200px;
+  height: 268px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.game-card-mobile:nth-child(even) {
+  margin-top: 30px;
+}
+
+.game-img-overlay-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.game-card-content-mobile {
+  position: relative;
+  z-index: 1;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+}
+
+.game-title-mobile {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.game-description-mobile {
+  font-size: 14px;
+}
+///
+
+@media (min-width: 768px) {
+  .list-game-calc-width {
+    width: 50%;
+  }
+}
+
 @media (max-width: 767px) {
   .game-card-wrapper {
     padding: 15px;
@@ -86,14 +169,4 @@
   .game-description {
     font-size: 0.7rem;
   }
-}
-
-.game-card-wrapper {
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-bottom: 40px;
-}
-
-.staggered-grid .game-card-wrapper:nth-child(-n + 4) {
-  margin-bottom: 0;
 }

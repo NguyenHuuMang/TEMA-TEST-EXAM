@@ -13,11 +13,22 @@ import magicTree from "../../../../assets/images/magic-tree.png";
 import aboriginesGame from "../../../../assets/images/aborigines.png";
 import cinderellaGame from "../../../../assets/images/cinderella.png";
 import egyptGame from "../../../../assets/images/egypt.png";
+import { useEffect, useState } from "react";
 type Props = {
   className?: string;
 };
 
 const ListGame = ({ className }: Props) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth > 819);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth > 819);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const games = [
     {
       id: 1,
@@ -133,7 +144,7 @@ const ListGame = ({ className }: Props) => {
     <div
       className={clsx(
         className,
-        "d-flex align-items-center justify-content-center w-50 flex-column"
+        "d-flex align-items-center justify-content-center list-game-calc-width flex-column"
       )}
     >
       <div className="d-flex flex-column" style={{ gap: "24px" }}>
@@ -162,41 +173,108 @@ const ListGame = ({ className }: Props) => {
           magnificent animation that never cease to impress.
         </span>
       </div>
-      <div className="container-fluid game-grid-container">
-        <div className="row staggered-grid">
-          {games.map((game) => {
-            const path = game?.imageUrl;
-            console.log(path);
-            return (
-              <div
-                key={game.id}
-                className={`col-6 col-md-4 col-lg-3 game-card-wrapper ${
-                  game.id % 2 === 0 ? "offset-card" : "height-full"
-                }`}
-              >
+      {isMobile ? (
+        // <div className="container-fluid game-grid-container">
+        //   <div className="row staggered-grid">
+        //     {games.map((game) => {
+        //       const path = game?.imageUrl;
+        //       console.log(path);
+        //       return (
+        //         <div
+        //           key={game.id}
+        //           className={`col-6 col-md-4 col-lg-3 game-card-wrapper ${
+        //             game.id % 2 === 0 ? "offset-card" : "height-full"
+        //           }`}
+        //         >
+        //           <div
+        //             className="game-card"
+        //             style={{
+        //               backgroundColor: game.backgroundColor,
+        //               color: game.textColor,
+        //             }}
+        //           >
+        //             <div className="game-card-content">
+        //               <h3 className="game-title">{game.title}</h3>
+        //               <p className="game-description">{game.description}</p>
+        //             </div>
+        //             <div
+        //               className="game-img-overlay"
+        //               style={{
+        //                 backgroundImage: `url(${game.imageUrl})`,
+        //               }}
+        //             ></div>
+        //           </div>
+        //         </div>
+        //       );
+        //     })}
+        //   </div>
+        // </div>
+        <div className="d-flex flex-row px-10">
+          <div className="game-list-desktop">
+            {games.map((game) => {
+              const path = game?.imageUrl;
+              return (
                 <div
-                  className="game-card"
+                  key={game.id}
+                  className={`game-card-mobile ${
+                    game.id % 2 === 0 ? "even-card" : ""
+                  }`}
                   style={{
                     backgroundColor: game.backgroundColor,
                     color: game.textColor,
                   }}
                 >
-                  <div className="game-card-content">
-                    <h3 className="game-title">{game.title}</h3>
-                    <p className="game-description">{game.description}</p>
+                  <div className="game-card-content-mobile">
+                    <h3 className="game-title-mobile">{game.title}</h3>
+                    <p className="game-description-mobile">
+                      {game.description}
+                    </p>
                   </div>
                   <div
-                    className="game-img-overlay"
+                    className="game-img-overlay-mobile"
                     style={{
                       backgroundImage: `url(${game.imageUrl})`,
                     }}
                   ></div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="d-flex flex-row px-10">
+          <div className="game-list-mobile">
+            {games.map((game) => {
+              const path = game?.imageUrl;
+              return (
+                <div
+                  key={game.id}
+                  className={`game-card-mobile ${
+                    game.id % 2 === 0 ? "even-card" : ""
+                  }`}
+                  style={{
+                    backgroundColor: game.backgroundColor,
+                    color: game.textColor,
+                  }}
+                >
+                  <div className="game-card-content-mobile">
+                    <h3 className="game-title-mobile">{game.title}</h3>
+                    <p className="game-description-mobile">
+                      {game.description}
+                    </p>
+                  </div>
+                  <div
+                    className="game-img-overlay-mobile"
+                    style={{
+                      backgroundImage: `url(${game.imageUrl})`,
+                    }}
+                  ></div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

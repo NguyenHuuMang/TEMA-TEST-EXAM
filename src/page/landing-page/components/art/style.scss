@@ -1,20 +1,20 @@
-.fade-in-out {
-  animation: fadeInOut 3s ease-in-out infinite;
-}
+// .fade-in-out {
+//   animation: fadeInOut 3s ease-in infinite;
+// }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+// @keyframes fadeInOut {
+//   0% {
+//     opacity: 0;
+//   }
+//   50% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 0;
+//   }
+// }
 .img-responsive {
   max-width: 80%;
-  width: auto;
+  min-width: 50%;
   height: auto;
 }

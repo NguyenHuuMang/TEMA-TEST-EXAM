@@ -28,16 +28,15 @@ const ContactUs = ({ className }: Props) => {
         className,
         "about-us d-flex align-items-center justify-content-center calc-width"
       )}
-      style={{ marginTop: "150px" }}
     >
-      <div className="d-flex flex-row w-100" style={{ gap: "40px" }}>
-        <div className="d-flex flex-column" style={{ width: "49%" }}>
+      <div className="d-flex w-100 responsive-about-us" style={{ gap: "40px" }}>
+        <div className="d-flex flex-column grid-responsive-about-us">
           <div className="left-about-us">
             <div className="title-about-us">About Us</div>
             <div className="description-about-us">{fakeData.description}</div>
           </div>
           <div
-            className="d-flex flex-column"
+            className="d-flex flex-column info-user-game-responsive"
             style={{ gap: "40px", marginTop: "70px" }}
           >
             <div className="d-flex flex-column gap-1">
@@ -53,7 +52,7 @@ const ContactUs = ({ className }: Props) => {
             </div>
           </div>
         </div>
-        <div className="d-flex flex-column" style={{ width: "49%" }}>
+        <div className="d-flex flex-column grid-responsive-about-us">
           <div className="right-about-us">
             <div className="space-right-about-us-item">
               <div className="gap-about-us-item">
