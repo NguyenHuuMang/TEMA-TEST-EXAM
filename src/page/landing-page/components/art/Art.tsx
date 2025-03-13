@@ -18,13 +18,13 @@ const Art = ({ className }: Props) => {
       <img
         src={princesImg}
         alt=""
-        className="w-50 fade-in-out"
+        className="img-responsive fade-in-out"
         style={{ marginTop: "20px" }}
       />
       <img
         src={mapImg}
         alt=""
-        className="position-relative"
+        className="img-responsive position-relative"
         style={{ marginTop: "-60px" }}
       />
     </div>

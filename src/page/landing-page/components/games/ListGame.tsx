@@ -107,7 +107,7 @@ const ListGame = ({ className }: Props) => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis orci, maximus a tempus at, sodales at magna.",
       imageUrl: aboriginesGame,
       backgroundColor: "#193250",
-      textColor: "#000000",
+      textColor: "#ffff",
     },
     {
       id: 11,

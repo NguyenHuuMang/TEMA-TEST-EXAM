@@ -26,8 +26,9 @@ const ContactUs = ({ className }: Props) => {
     <div
       className={clsx(
         className,
-        "about-us d-flex align-items-center justify-content-center w-50"
+        "about-us d-flex align-items-center justify-content-center calc-width"
       )}
+      style={{ marginTop: "150px" }}
     >
       <div className="d-flex flex-row w-100" style={{ gap: "40px" }}>
         <div className="d-flex flex-column" style={{ width: "49%" }}>
