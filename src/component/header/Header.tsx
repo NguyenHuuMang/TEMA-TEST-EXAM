@@ -4,8 +4,12 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 import mainLogo from "../../assets/images/logo.png";
 import FlagSelect from "../frag-select/FlagSelect";
+import LanguageSwitcher from "../translation/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t } = useTranslation();
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -85,7 +89,7 @@ const Header = () => {
                     scrollToSection("about-us");
                   }}
                 >
-                  VỀ CHÚNG TÔI
+                  {(t as any)("header.title")}
                 </a>
               </li>
               <li>
@@ -96,7 +100,7 @@ const Header = () => {
                     scrollToSection("games");
                   }}
                 >
-                  TRÒ CHƠI
+                  {(t as any)("header.game")}
                 </a>
               </li>
               <li>
@@ -107,7 +111,7 @@ const Header = () => {
                     scrollToSection("partners");
                   }}
                 >
-                  ĐỘI TÁC
+                  {(t as any)("header.partners")}
                 </a>
               </li>
               <li>
@@ -118,12 +122,13 @@ const Header = () => {
                     scrollToSection("contact");
                   }}
                 >
-                  LIÊN HỆ
+                  {(t as any)("header.contactUs")}
                 </a>
               </li>
-              <li className="language">
+              {/* <li className="language">
                 <a href="#lang">VI</a>
-              </li>
+              </li> */}
+              <LanguageSwitcher />
             </ul>
           </nav>
         )}
@@ -134,7 +139,7 @@ const Header = () => {
           className={`mobile-menu-fullscreen ${isMobileMenuOpen ? "open" : ""}`}
         >
           <div style={{ padding: "20px" }}>
-            <FlagSelect />
+            <LanguageSwitcher mobile={true} />
           </div>
           <div className="menu-content">
             <nav>
@@ -147,7 +152,7 @@ const Header = () => {
                       scrollToSection("about-us");
                     }}
                   >
-                    VỀ CHÚNG TÔI
+                    {(t as any)("header.title")}
                   </a>
                 </li>
                 <li>
@@ -158,7 +163,7 @@ const Header = () => {
                       scrollToSection("games");
                     }}
                   >
-                    TRÒ CHƠI
+                    {(t as any)("header.game")}
                   </a>
                 </li>
                 <li>
@@ -169,7 +174,7 @@ const Header = () => {
                       scrollToSection("partners");
                     }}
                   >
-                    ĐỘI TÁC
+                    {(t as any)("header.partners")}
                   </a>
                 </li>
                 <li>
@@ -180,11 +185,8 @@ const Header = () => {
                       scrollToSection("contact");
                     }}
                   >
-                    LIÊN HỆ
+                    {(t as any)("header.contactUs")}
                   </a>
-                </li>
-                <li className="language">
-                  <a href="#lang">VI</a>
                 </li>
               </ul>
             </nav>

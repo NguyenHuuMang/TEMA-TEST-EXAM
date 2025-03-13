@@ -13,10 +13,12 @@ import TwoKGame from "../../../../assets/images/2K-Partner.png";
 import SegaGame from "../../../../assets/images/Sega-Partner.png";
 import "./style.scss";
 import ImageSlider from "./ImageSlide";
+import { useTranslation } from "react-i18next";
 type Props = {
   className?: string;
 };
 const Partners = ({ className }: Props) => {
+  const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 819);
   useEffect(() => {
     const handleResize = () => {
@@ -55,7 +57,7 @@ const Partners = ({ className }: Props) => {
                 textAlign: "center",
               }}
             >
-              Our Partners
+              {(t as any)("partners")}
             </div>
           ) : (
             <div
@@ -67,7 +69,7 @@ const Partners = ({ className }: Props) => {
                 textAlign: "center",
               }}
             >
-              Our Partners
+              {(t as any)("partners")}
             </div>
           )}
           {isMobile ? (

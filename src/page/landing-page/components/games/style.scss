@@ -145,7 +145,28 @@
 
 @media (min-width: 768px) {
   .list-game-calc-width {
+    width: 100%;
+    padding: 0 80px;
+  }
+  .game-list-desktop {
+    width: 100%;
+  }
+  .game-card-mobile {
+    position: relative;
+    width: 380px;
+    height: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+  .game-description {
     width: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -168,5 +189,6 @@
 
   .game-description {
     font-size: 0.7rem;
+    padding: 0 24px;
   }
 }

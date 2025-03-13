@@ -61,11 +61,11 @@
 }
 
 .footer-center {
-  max-width: 300px;
+  max-width: 500px;
 }
 
 .footer-right {
-  max-width: 300px;
+  max-width: 400px;
 }
 
 .subscribe-box {
@@ -74,7 +74,6 @@
   border-radius: 8px;
   overflow: hidden;
   background-color: transparent;
-  max-width: 250px;
   border-color: 1px solid #fff;
   .input-box {
     border: none;
@@ -92,4 +91,48 @@
   padding: 15px 0;
   font-size: 16px;
   color: #fff;
+}
+
+.input-box {
+  width: 100%;
+  padding: 12px 50px 12px 15px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  outline: none;
+  position: relative;
+}
+
+.input-box::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+
+.input-icon {
+  position: absolute;
+  right: 14px;
+  top: 73%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .calc-gap {
+    gap: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .calc-gap {
+    gap: 20px;
+  }
 }

@@ -14,12 +14,15 @@ import aboriginesGame from "../../../../assets/images/aborigines.png";
 import cinderellaGame from "../../../../assets/images/cinderella.png";
 import egyptGame from "../../../../assets/images/egypt.png";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 type Props = {
   className?: string;
 };
 
 const ListGame = ({ className }: Props) => {
+  const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(window.innerWidth > 819);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth > 819);
@@ -147,7 +150,10 @@ const ListGame = ({ className }: Props) => {
         "d-flex align-items-center justify-content-center list-game-calc-width flex-column"
       )}
     >
-      <div className="d-flex flex-column" style={{ gap: "24px" }}>
+      <div
+        className="d-flex flex-column align-items-center justify-content-center"
+        style={{ gap: "24px" }}
+      >
         <span
           style={{
             color: "#000",
@@ -156,7 +162,8 @@ const ListGame = ({ className }: Props) => {
             textAlign: "center",
           }}
         >
-          Our Game
+          {/* Our Game */}
+          {(t as any)("gameInfo.ourGames")}
         </span>
         <span
           style={{
@@ -166,11 +173,9 @@ const ListGame = ({ className }: Props) => {
             lineHeight: "140%",
             textAlign: "center",
           }}
+          className="game-description"
         >
-          As a pioneer of mobile app gamification, we take pride in originality
-          and individuality, providing global players with state-of-the-art
-          games that feature splendid storylines, sensational sound effects and
-          magnificent animation that never cease to impress.
+          {(t as any)("gameInfo.description")}
         </span>
       </div>
       {isMobile ? (
@@ -209,7 +214,7 @@ const ListGame = ({ className }: Props) => {
         //     })}
         //   </div>
         // </div>
-        <div className="d-flex flex-row px-10">
+        <div className="d-flex flex-row px-10 w-100">
           <div className="game-list-desktop">
             {games.map((game) => {
               const path = game?.imageUrl;

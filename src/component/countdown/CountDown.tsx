@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
+import { useTranslation } from "react-i18next";
 
 const CountdownTimer = ({ targetDate }: any) => {
+  const { t } = useTranslation();
   const calculateTimeLeft = () => {
     const difference = +new Date(targetDate) - +new Date();
     let timeLeft = {};
@@ -36,22 +38,24 @@ const CountdownTimer = ({ targetDate }: any) => {
     <div className="countdown-timer">
       <div className="timer-item">
         <span className="time">{addLeadingZero(1 || 0)}</span>
-        <span className="label">Ngày</span>
+        <span className="label">{(t as any)("countdown_children.day")}</span>
       </div>
       <span className="separator d-flex h-100 align-self-center">:</span>
       <div className="timer-item">
         <span className="time">{addLeadingZero(timeLeft.hours || 0)}</span>
-        <span className="label">Giờ</span>
+        <span className="label">{(t as any)("countdown_children.hours")}</span>
       </div>
       <span className="separator d-flex h-100 align-self-center">:</span>
       <div className="timer-item">
         <span className="time">{addLeadingZero(timeLeft.minutes || 0)}</span>
-        <span className="label">Phút</span>
+        <span className="label">
+          {(t as any)("countdown_children.minutes")}
+        </span>
       </div>
       <span className="separator d-flex h-100 align-self-center">:</span>
       <div className="timer-item">
         <span className="time">{addLeadingZero(timeLeft.seconds || 0)}</span>
-        <span className="label">Giây</span>
+        <span className="label">{(t as any)("countdown_children.second")}</span>
       </div>
     </div>
   );

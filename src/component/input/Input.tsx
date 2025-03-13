@@ -3,14 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.scss";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const Input = () => {
+type Props = {
+  placeholder?: string;
+  type?: string;
+  className?: string;
+};
+
+const Input = ({ placeholder, type = "email", className }: Props) => {
   return (
     <div className="input-container">
-      <input
-        type="email"
-        placeholder="Enter your email"
-        className="email-input"
-      />
+      <input type={type} placeholder={placeholder} className="email-input" />
       <button className="input-button">
         <FontAwesomeIcon icon={faArrowRight} />
       </button>

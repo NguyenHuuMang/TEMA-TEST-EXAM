@@ -18,9 +18,10 @@ const Art = ({ className }: Props) => {
       <img
         src={princesImg}
         alt=""
-        className="img-responsive fade-in-out"
+        className="img-responsive animated-img"
         style={{ marginTop: "20px" }}
       />
+
       <img
         src={mapImg}
         alt=""

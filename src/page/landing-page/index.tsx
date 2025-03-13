@@ -11,8 +11,10 @@ import Art from "./components/art/Art";
 import ListGame from "./components/games/ListGame";
 import Partners from "./components/partners/Partners";
 import Input from "../../component/input/Input";
+import { useTranslation } from "react-i18next";
 
 const LandingPage = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const launchDate = new Date();
   launchDate.setDate(launchDate.getDate() + 30);
@@ -63,7 +65,7 @@ const LandingPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
-              <h1 className="title">We’re Getting Ready</h1>
+              <h1 className="title">{(t as any)("title")}</h1>
               <CountdownTimer targetDate={launchDate} />
               <motion.div
                 className="mt-4 d-flex flex-column"
@@ -76,11 +78,8 @@ const LandingPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.6 }}
               >
-                <p className="description">
-                  We will be back with something amazing. Get the latest updates
-                  about our games. Please sign up for our newsletter.
-                </p>
-                <Input />
+                <p className="description">{(t as any)("description")}</p>
+                <Input placeholder={(t as any)("email")} />
               </motion.div>
             </motion.div>
           </div>
