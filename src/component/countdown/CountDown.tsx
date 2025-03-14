@@ -3,6 +3,16 @@ import "./style.scss";
 import { useTranslation } from "react-i18next";
 
 const CountdownTimer = ({ targetDate }: any) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const { t } = useTranslation();
   const calculateTimeLeft = () => {
     const difference = +new Date(targetDate) - +new Date();
@@ -35,29 +45,79 @@ const CountdownTimer = ({ targetDate }: any) => {
   };
 
   return (
-    <div className="countdown-timer">
-      <div className="timer-item">
-        <span className="time">{addLeadingZero(1 || 0)}</span>
-        <span className="label">{(t as any)("countdown_children.day")}</span>
-      </div>
-      <span className="separator d-flex h-100 align-self-center">:</span>
-      <div className="timer-item">
-        <span className="time">{addLeadingZero(timeLeft.hours || 0)}</span>
-        <span className="label">{(t as any)("countdown_children.hours")}</span>
-      </div>
-      <span className="separator d-flex h-100 align-self-center">:</span>
-      <div className="timer-item">
-        <span className="time">{addLeadingZero(timeLeft.minutes || 0)}</span>
-        <span className="label">
-          {(t as any)("countdown_children.minutes")}
-        </span>
-      </div>
-      <span className="separator d-flex h-100 align-self-center">:</span>
-      <div className="timer-item">
-        <span className="time">{addLeadingZero(timeLeft.seconds || 0)}</span>
-        <span className="label">{(t as any)("countdown_children.second")}</span>
-      </div>
-    </div>
+    <>
+      {isMobile ? (
+        <div className="countdown-timer-mobile">
+          <div className="timer-item">
+            <span className="time-mobile">{addLeadingZero(1 || 0)}</span>
+            <span className="label-mobile">
+              {(t as any)("countdown_children.day")}
+            </span>
+          </div>
+          <span className="separator d-flex h-100 align-self-center">:</span>
+          <div className="timer-item">
+            <span className="time-mobile">
+              {addLeadingZero(timeLeft.hours || 0)}
+            </span>
+            <span className="label-mobile">
+              {(t as any)("countdown_children.hours")}
+            </span>
+          </div>
+          <span className="separator d-flex h-100 align-self-center">:</span>
+          <div className="timer-item">
+            <span className="time-mobile">
+              {addLeadingZero(timeLeft.minutes || 0)}
+            </span>
+            <span className="label-mobile">
+              {(t as any)("countdown_children.minutes")}
+            </span>
+          </div>
+          <span className="separator d-flex h-100 align-self-center">:</span>
+          <div className="timer-item">
+            <span className="time-mobile">
+              {addLeadingZero(timeLeft.seconds || 0)}
+            </span>
+            <span className="label-mobile">
+              {(t as any)("countdown_children.second")}
+            </span>
+          </div>
+        </div>
+      ) : (
+        <div className="countdown-timer">
+          <div className="timer-item">
+            <span className="time">{addLeadingZero(1 || 0)}</span>
+            <span className="label">
+              {(t as any)("countdown_children.day")}
+            </span>
+          </div>
+          <span className="separator d-flex h-100 align-self-center">:</span>
+          <div className="timer-item">
+            <span className="time">{addLeadingZero(timeLeft.hours || 0)}</span>
+            <span className="label">
+              {(t as any)("countdown_children.hours")}
+            </span>
+          </div>
+          <span className="separator d-flex h-100 align-self-center">:</span>
+          <div className="timer-item">
+            <span className="time">
+              {addLeadingZero(timeLeft.minutes || 0)}
+            </span>
+            <span className="label">
+              {(t as any)("countdown_children.minutes")}
+            </span>
+          </div>
+          <span className="separator d-flex h-100 align-self-center">:</span>
+          <div className="timer-item">
+            <span className="time">
+              {addLeadingZero(timeLeft.seconds || 0)}
+            </span>
+            <span className="label">
+              {(t as any)("countdown_children.second")}
+            </span>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

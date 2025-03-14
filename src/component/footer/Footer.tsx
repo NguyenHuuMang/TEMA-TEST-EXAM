@@ -70,7 +70,7 @@ const Footer = () => {
 
             <div
               className="d-flex flex-column"
-              style={{ gap: "40px", width: "100%" }}
+              style={{ gap: isMobile ? "20px" : "40px", width: "100%" }}
             >
               <h4>{(t as any)("footer.address")}</h4>
               <div className="d-flex flex-row gap-2">

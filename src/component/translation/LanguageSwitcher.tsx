@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import checkedImg from "../../assets/images/checked.png";
 
 type Props = {
@@ -28,6 +26,7 @@ const LanguageSwitcher = ({ mobile = false }: Props) => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
           onClick={() => setIsOpen(!isOpen)}
+          style={{ border: mobile ? "1px solid #ccc" : "none" }}
         >
           <img
             src={
@@ -46,11 +45,13 @@ const LanguageSwitcher = ({ mobile = false }: Props) => {
             style={{
               border: "1px solid #ccc",
               backgroundColor: "#fff",
+              zIndex: 101,
               padding: "8px",
               borderRadius: "8px",
               height: "fit-content",
               gap: "4px",
-              right: mobile ? "80px" : "20px",
+              right: mobile ? "194px" : "20px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             }}
           >
             <div
@@ -65,7 +66,10 @@ const LanguageSwitcher = ({ mobile = false }: Props) => {
                   fontWeight: "600",
                   marginLeft: "0px",
                 }}
-                onClick={() => changeLanguage("vi")}
+                onClick={() => {
+                  changeLanguage("vi");
+                  setIsOpen(false);
+                }}
               >
                 {currentLanguage === "vi" ? (
                   <img
@@ -109,7 +113,10 @@ const LanguageSwitcher = ({ mobile = false }: Props) => {
                   fontWeight: "600",
                   marginLeft: "0px",
                 }}
-                onClick={() => changeLanguage("en")}
+                onClick={() => {
+                  changeLanguage("en");
+                  setIsOpen(false);
+                }}
               >
                 {currentLanguage !== "vi" ? (
                   <img
@@ -139,6 +146,7 @@ const LanguageSwitcher = ({ mobile = false }: Props) => {
                     objectFit: "cover",
                     marginRight: "12px",
                   }}
+                  alt="flag-us"
                 />
                 <span className="mt-2">English</span>
               </button>

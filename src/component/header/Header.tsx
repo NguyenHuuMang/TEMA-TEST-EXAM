@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 import mainLogo from "../../assets/images/logo.png";
-import FlagSelect from "../frag-select/FlagSelect";
 import LanguageSwitcher from "../translation/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const { t } = useTranslation();
-
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 915);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,8 +18,8 @@ const Header = () => {
     };
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-      if (window.innerWidth > 768) {
+      setIsMobile(window.innerWidth <= 915);
+      if (window.innerWidth > 915) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -74,6 +72,7 @@ const Header = () => {
               className="mobile-menu-toggle"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close" : "Open"}
+              style={{ color: isMobileMenuOpen ? "black" : "white" }}
             >
               <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
             </button>
@@ -88,6 +87,7 @@ const Header = () => {
                     e.preventDefault();
                     scrollToSection("about-us");
                   }}
+                  style={{ fontSize: "14px", fontWeight: "700" }}
                 >
                   {(t as any)("header.title")}
                 </a>
@@ -99,6 +99,7 @@ const Header = () => {
                     e.preventDefault();
                     scrollToSection("games");
                   }}
+                  style={{ fontSize: "14px", fontWeight: "700" }}
                 >
                   {(t as any)("header.game")}
                 </a>
@@ -110,6 +111,7 @@ const Header = () => {
                     e.preventDefault();
                     scrollToSection("partners");
                   }}
+                  style={{ fontSize: "14px", fontWeight: "700" }}
                 >
                   {(t as any)("header.partners")}
                 </a>
@@ -121,13 +123,11 @@ const Header = () => {
                     e.preventDefault();
                     scrollToSection("contact");
                   }}
+                  style={{ fontSize: "14px", fontWeight: "700" }}
                 >
                   {(t as any)("header.contactUs")}
                 </a>
               </li>
-              {/* <li className="language">
-                <a href="#lang">VI</a>
-              </li> */}
               <LanguageSwitcher />
             </ul>
           </nav>
@@ -142,47 +142,95 @@ const Header = () => {
             <LanguageSwitcher mobile={true} />
           </div>
           <div className="menu-content">
-            <nav>
-              <ul>
-                <li>
+            <nav style={{ color: "#000" }}>
+              <ul className="d-flex flex-column align-items-center justify-content-center">
+                <li
+                  style={{
+                    borderBottom: "1px solid #EEEEEE",
+                    width: "100%",
+                    textAlign: "center",
+                  }}
+                >
                   <a
                     href="#about"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("about-us");
                     }}
+                    style={{
+                      color: "#000",
+                      paddingBottom: "24px",
+                      fontSize: "14px",
+                      fontWeight: "700",
+                    }}
                   >
                     {(t as any)("header.title")}
                   </a>
                 </li>
-                <li>
+                <li
+                  style={{
+                    borderBottom: "1px solid #EEEEEE",
+                    width: "100%",
+                    textAlign: "center",
+                  }}
+                >
                   <a
                     href="#game"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("games");
                     }}
+                    style={{
+                      color: "#000",
+                      paddingBottom: "24px",
+                      fontSize: "14px",
+                      fontWeight: "700",
+                    }}
                   >
                     {(t as any)("header.game")}
                   </a>
                 </li>
-                <li>
+                <li
+                  style={{
+                    borderBottom: "1px solid #EEEEEE",
+                    width: "100%",
+                    textAlign: "center",
+                  }}
+                >
                   <a
                     href="#team"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("partners");
                     }}
+                    style={{
+                      color: "#000",
+                      paddingBottom: "24px",
+                      fontSize: "14px",
+                      fontWeight: "700",
+                    }}
                   >
                     {(t as any)("header.partners")}
                   </a>
                 </li>
-                <li>
+                <li
+                  style={{
+                    borderBottom: "1px solid #EEEEEE",
+                    width: "100%",
+                    textAlign: "center",
+                  }}
+                >
                   <a
                     href="#contact"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("contact");
+                    }}
+                    style={{
+                      color: "#000",
+                      paddingBottom: "24px",
+                      fontSize: "14px",
+                      fontWeight: "700",
                     }}
                   >
                     {(t as any)("header.contactUs")}

@@ -1,10 +1,10 @@
-import React from "react";
 import clsx from "clsx";
 import "./style.scss";
 import calendarImg from "../../../../assets/images/CalendarImg.png";
 import teamImg from "../../../../assets/images/teamImg.png";
 import designImg from "../../../../assets/images/designImg.png";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
 type Props = {
   className?: string;

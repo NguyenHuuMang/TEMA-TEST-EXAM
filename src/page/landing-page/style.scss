@@ -55,7 +55,7 @@ body {
 }
 
 .img-fairy {
-  top: 150px;
+  top: 52px;
 }
 
 .main-nav {
@@ -113,6 +113,7 @@ body {
     font-size: 80px;
     line-height: 120px;
     color: #fff;
+    margin-bottom: 0px !important;
     @media (min-width: 270px) and (max-width: 600px) {
       font-size: 40px;
       line-height: 50px;
@@ -295,12 +296,10 @@ body {
     margin-left: 90px;
   }
   .img-fairy-mobile {
-    width: 80%;
+    width: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 80%;
-    min-width: 50%;
     height: auto;
   }
 }
@@ -320,12 +319,13 @@ body {
     margin-left: 70px;
   }
   .img-fairy-mobile {
-    width: 80%;
+    width: 90%;
+    margin-left: 50px;
+    margin-top: -150px;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 80%;
-    min-width: 50%;
     height: auto;
   }
 }

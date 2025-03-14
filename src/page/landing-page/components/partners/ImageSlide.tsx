@@ -29,9 +29,11 @@ const ImageSlider = ({ images }: Props) => {
   return (
     <div className="slider-container">
       <div className="slider-content">
-        <button className="slider-btn prev-btn" onClick={goToPrevious}>
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
+        <div className="pe-2 d-flex h-100 align-items-center justify-content-center align-self-center mt-4">
+          <button onClick={goToPrevious} className="custom-nav prev">
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+        </div>
 
         <div className="slider-image-container">
           <img
@@ -40,10 +42,11 @@ const ImageSlider = ({ images }: Props) => {
             className="slider-image"
           />
         </div>
-
-        <button className="slider-btn next-btn" onClick={goToNext}>
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
+        <div className="ps-2 d-flex h-100 align-items-center justify-content-center align-self-center mt-4">
+          <button onClick={goToNext} className="custom-nav next">
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+        </div>
       </div>
     </div>
   );

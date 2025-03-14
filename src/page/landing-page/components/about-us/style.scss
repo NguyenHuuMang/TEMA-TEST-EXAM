@@ -8,36 +8,44 @@
   }
   .title-about-us {
     font-size: 60px;
+    font-family: "Playfair Display", serif;
     font-weight: 900;
     line-height: 60px;
+    padding-left: 16px;
     color: #000;
     display: flex;
     align-items: start;
     justify-content: start;
     text-align: start;
+    width: 100%;
   }
   .description-about-us {
+    font-family: "Montserrat", sans-serif;
     width: 100%;
     display: flex;
     align-items: center;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: normal;
     color: #757575;
+    line-height: 140%;
     justify-content: center;
   }
   .user-title {
+    font-family: "Montserrat", sans-serif;
     font-size: 24px;
     font-weight: 700;
     line-height: 30px;
     color: #000;
   }
   .user-system {
+    font-family: "Montserrat", sans-serif;
     font-size: 80px;
     line-height: 100%;
     font-weight: 700;
     color: #079bee;
   }
   .unit {
+    font-family: "Montserrat", sans-serif;
     font-size: 40px;
     line-height: 100%;
     font-weight: 700;
@@ -45,6 +53,7 @@
   }
 
   .right-about-us {
+    font-family: "Montserrat", sans-serif;
     background-color: #eeeeee;
     display: flex;
     flex-direction: column;
@@ -69,6 +78,7 @@
     line-height: 30px;
   }
   .description-item-right {
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     color: #757575;
     line-height: 140%;

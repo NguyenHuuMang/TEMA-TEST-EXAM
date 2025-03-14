@@ -1,20 +1,19 @@
 import clsx from "clsx";
-import mapImg from "../../../../assets/images/map.png";
-import "./style.scss";
-import eSpace from "../../../../assets/images/e-space.png";
-import kingLand from "../../../../assets/images/king-land.png";
-import lastGame from "../../../../assets/images/last-game.png";
-import dragonGame from "../../../../assets/images/dragon.png";
-import piratesGame from "../../../../assets/images/pirates.png";
-import witchPartyGame from "../../../../assets/images/witchparty.png";
-import rockyGame from "../../../../assets/images/rocky.png";
-import blueFireGame from "../../../../assets/images/blue-fire.png";
-import magicTree from "../../../../assets/images/magic-tree.png";
-import aboriginesGame from "../../../../assets/images/aborigines.png";
-import cinderellaGame from "../../../../assets/images/cinderella.png";
-import egyptGame from "../../../../assets/images/egypt.png";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import aboriginesGame from "../../../../assets/images/aborigines.png";
+import blueFireGame from "../../../../assets/images/blue-fire.png";
+import cinderellaGame from "../../../../assets/images/cinderella.png";
+import dragonGame from "../../../../assets/images/dragon.png";
+import eSpace from "../../../../assets/images/e-space.png";
+import egyptGame from "../../../../assets/images/egypt.png";
+import kingLand from "../../../../assets/images/king-land.png";
+import lastGame from "../../../../assets/images/last-game.png";
+import magicTree from "../../../../assets/images/magic-tree.png";
+import piratesGame from "../../../../assets/images/pirates.png";
+import rockyGame from "../../../../assets/images/rocky.png";
+import witchPartyGame from "../../../../assets/images/witchparty.png";
+import "./style.scss";
 type Props = {
   className?: string;
 };
@@ -154,70 +153,17 @@ const ListGame = ({ className }: Props) => {
         className="d-flex flex-column align-items-center justify-content-center"
         style={{ gap: "24px" }}
       >
-        <span
-          style={{
-            color: "#000",
-            fontSize: "60px",
-            fontWeight: "900",
-            textAlign: "center",
-          }}
-        >
-          {/* Our Game */}
+        <div className="title-list-game-page">
           {(t as any)("gameInfo.ourGames")}
-        </span>
-        <span
-          style={{
-            color: "#757575",
-            fontSize: "14px",
-            fontWeight: "400",
-            lineHeight: "140%",
-            textAlign: "center",
-          }}
-          className="game-description"
-        >
+        </div>
+        <span className="game-description">
           {(t as any)("gameInfo.description")}
         </span>
       </div>
       {isMobile ? (
-        // <div className="container-fluid game-grid-container">
-        //   <div className="row staggered-grid">
-        //     {games.map((game) => {
-        //       const path = game?.imageUrl;
-        //       console.log(path);
-        //       return (
-        //         <div
-        //           key={game.id}
-        //           className={`col-6 col-md-4 col-lg-3 game-card-wrapper ${
-        //             game.id % 2 === 0 ? "offset-card" : "height-full"
-        //           }`}
-        //         >
-        //           <div
-        //             className="game-card"
-        //             style={{
-        //               backgroundColor: game.backgroundColor,
-        //               color: game.textColor,
-        //             }}
-        //           >
-        //             <div className="game-card-content">
-        //               <h3 className="game-title">{game.title}</h3>
-        //               <p className="game-description">{game.description}</p>
-        //             </div>
-        //             <div
-        //               className="game-img-overlay"
-        //               style={{
-        //                 backgroundImage: `url(${game.imageUrl})`,
-        //               }}
-        //             ></div>
-        //           </div>
-        //         </div>
-        //       );
-        //     })}
-        //   </div>
-        // </div>
         <div className="d-flex flex-row px-10 w-100">
           <div className="game-list-desktop">
             {games.map((game) => {
-              const path = game?.imageUrl;
               return (
                 <div
                   key={game.id}
@@ -225,15 +171,16 @@ const ListGame = ({ className }: Props) => {
                     game.id % 2 === 0 ? "even-card" : ""
                   }`}
                   style={{
-                    backgroundColor: game.backgroundColor,
+                    backgroundColor:
+                      "linear-gradient(360deg, rgba(0, 9, 225, 0.5) 6.79%, rgba(0, 0, 0, 0) 61.34%)",
                     color: game.textColor,
                   }}
                 >
                   <div className="game-card-content-mobile">
-                    <h3 className="game-title-mobile">{game.title}</h3>
-                    <p className="game-description-mobile">
+                    <div className="game-title-mobile">{game.title}</div>
+                    <div className="game-description-mobile">
                       {game.description}
-                    </p>
+                    </div>
                   </div>
                   <div
                     className="game-img-overlay-mobile"
@@ -247,10 +194,9 @@ const ListGame = ({ className }: Props) => {
           </div>
         </div>
       ) : (
-        <div className="d-flex flex-row px-10">
+        <div className="d-flex flex-row px-10 calc-width-card">
           <div className="game-list-mobile">
             {games.map((game) => {
-              const path = game?.imageUrl;
               return (
                 <div
                   key={game.id}
@@ -258,15 +204,27 @@ const ListGame = ({ className }: Props) => {
                     game.id % 2 === 0 ? "even-card" : ""
                   }`}
                   style={{
-                    backgroundColor: game.backgroundColor,
+                    backgroundColor:
+                      "linear-gradient(360deg, rgba(0, 9, 225, 0.5) 6.79%, rgba(0, 0, 0, 0) 61.34%)",
                     color: game.textColor,
                   }}
                 >
-                  <div className="game-card-content-mobile">
-                    <h3 className="game-title-mobile">{game.title}</h3>
-                    <p className="game-description-mobile">
+                  <div
+                    className="game-card-content-mobile"
+                    style={{ gap: "16px" }}
+                  >
+                    <div
+                      className="game-title-mobile"
+                      style={{ marginBottom: "0px" }}
+                    >
+                      {game.title}
+                    </div>
+                    <div
+                      className="game-description-mobile"
+                      style={{ marginBottom: "0px" }}
+                    >
                       {game.description}
-                    </p>
+                    </div>
                   </div>
                   <div
                     className="game-img-overlay-mobile"

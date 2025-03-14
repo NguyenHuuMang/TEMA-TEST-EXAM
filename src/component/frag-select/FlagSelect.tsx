@@ -38,11 +38,7 @@ const FlagSelect = ({ showLabel = false }: Props) => {
 
   return (
     <>
-      {showLabel ? (
-        <Select options={options} defaultValue={options[0]} className="w-25" />
-      ) : (
-        <Select options={options} defaultValue={options[0]} className="w-25" />
-      )}
+      <Select options={options} defaultValue={options[0]} className="w-25" />
     </>
   );
 };

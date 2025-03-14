@@ -6,7 +6,7 @@ import Fairy from "../../assets/images/Fairy.png";
 
 import "./style.scss";
 import CountdownTimer from "../../component/countdown/CountDown";
-import ContactUs from "./components/contact-us/ContactUs";
+import ContactUs from "./components/about-us/AboutUs";
 import Art from "./components/art/Art";
 import ListGame from "./components/games/ListGame";
 import Partners from "./components/partners/Partners";
@@ -22,6 +22,16 @@ const LandingPage = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const [isMobileSmall, setIsMobileSmall] = useState(window.innerWidth < 680);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileSmall(window.innerWidth < 680);
     };
 
     window.addEventListener("resize", handleResize);
@@ -45,7 +55,7 @@ const LandingPage = () => {
   return (
     <div
       className="page d-flex flex-column overflow-hidden"
-      style={{ gap: "128px" }}
+      style={{ gap: isMobileSmall ? "0px" : "128px" }}
     >
       <motion.div
         className="landing-page"
@@ -58,6 +68,9 @@ const LandingPage = () => {
             className={`content-wrapper d-flex ${
               isMobile ? "flex-column" : "flex-row"
             }`}
+            style={{
+              marginTop: isMobile ? "100px" : "0px",
+            }}
           >
             <motion.div
               className="text-content"
@@ -65,12 +78,13 @@ const LandingPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
-              <h1 className="title">{(t as any)("title")}</h1>
+              <h1 className="title">{(t as any)("title")}</h1>{" "}
               <CountdownTimer targetDate={launchDate} />
               <motion.div
-                className="mt-4 d-flex flex-column"
+                className="d-flex flex-column"
                 style={{
                   gap: "32px",
+                  marginTop: "97px",
                   paddingLeft: "16px",
                   paddingRight: "16px",
                 }}

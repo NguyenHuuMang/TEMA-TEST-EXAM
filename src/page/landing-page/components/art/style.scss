@@ -1,24 +1,27 @@
 .animated-img {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  animation: fadeInOut 3s infinite alternate;
+  animation: moveLeftRight 3s ease-in-out infinite alternate;
 }
 
 .animated-img:hover {
-  animation: rotateImage 1s linear infinite, fadeInOut 3s infinite alternate;
+  animation: moveLeftRight 1.5s ease-in-out infinite alternate;
 }
 
-@keyframes rotateImage {
-  from {
-    transform: rotate(0deg);
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
 @keyframes fadeInOut {
   0% {
-    opacity: 0.7;
+    opacity: 0.8;
   }
   100% {
     opacity: 1;
@@ -26,7 +29,14 @@
 }
 
 .img-responsive {
-  max-width: 80%;
-  min-width: 50%;
-  height: auto;
+  @media (min-width: 580px) {
+    max-width: 80%;
+    height: auto;
+    min-width: 50%;
+  }
+  @media (min-width: 270px) and (max-width: 579px) {
+    max-width: 120%;
+    min-width: 120%;
+    height: auto;
+  }
 }

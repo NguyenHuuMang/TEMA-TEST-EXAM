@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,10 +14,18 @@ import SegaGame from "../../../../assets/images/Sega-Partner.png";
 import "./style.scss";
 import ImageSlider from "./ImageSlide";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 type Props = {
   className?: string;
 };
 const Partners = ({ className }: Props) => {
+  const swiperRef = useRef<any>(null);
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
   const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 819);
   useEffect(() => {
@@ -48,27 +56,9 @@ const Partners = ({ className }: Props) => {
       <div style={{ paddingTop: "120px", paddingBottom: "120px" }}>
         <div className="d-flex flex-column" style={{ gap: "80px" }}>
           {isMobile ? (
-            <div
-              style={{
-                fontSize: "40px",
-                fontWeight: "900",
-                color: "#000",
-                lineHeight: "60px",
-                textAlign: "center",
-              }}
-            >
-              {(t as any)("partners")}
-            </div>
+            <div className="partner-title-mobile">{(t as any)("partners")}</div>
           ) : (
-            <div
-              style={{
-                fontSize: "60px",
-                fontWeight: "900",
-                color: "#000",
-                lineHeight: "60px",
-                textAlign: "center",
-              }}
-            >
+            <div className="partner-title-desktop">
               {(t as any)("partners")}
             </div>
           )}
@@ -78,13 +68,27 @@ const Partners = ({ className }: Props) => {
               <ImageSlider images={images} />
             </div>
           ) : (
-            <div className="container py-5 text-center">
+            <div className="container py-5 text-center d-flex flex-row">
+              <div className="pe-2 d-flex h-100 align-items-center justify-content-center align-self-center mt-4">
+                <button
+                  onClick={() => swiperRef.current?.slidePrev()}
+                  ref={prevRef}
+                  className="custom-nav prev"
+                >
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                </button>
+              </div>
+
               <Swiper
                 slidesPerView={3}
                 spaceBetween={10}
                 loop={true}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
-                navigation={true}
+                navigation={{
+                  prevEl: prevRef.current,
+                  nextEl: nextRef.current,
+                }}
+                onSwiper={(swiper: any) => (swiperRef.current = swiper)}
                 breakpoints={{
                   320: { slidesPerView: 1 },
                   640: { slidesPerView: 1 },
@@ -107,6 +111,15 @@ const Partners = ({ className }: Props) => {
                   </SwiperSlide>
                 ))}
               </Swiper>
+              <div className="ps-2 d-flex h-100 align-items-center justify-content-center align-self-center mt-4">
+                <button
+                  onClick={() => swiperRef.current?.slideNext()}
+                  ref={nextRef}
+                  className="custom-nav next"
+                >
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </button>
+              </div>
             </div>
           )}
         </div>

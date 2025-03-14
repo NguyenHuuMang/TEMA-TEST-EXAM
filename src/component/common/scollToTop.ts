@@ -21,7 +21,6 @@ declare module 'react-i18next' {
                 language: string;
                 english: string;
                 vietnamese: string;
-                // thêm các keys khác nếu cần
             };
         };
     }
