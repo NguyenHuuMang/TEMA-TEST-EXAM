@@ -49,8 +49,10 @@ i18n
                         address: "Address",
                         street: "Valletta Buildings, South Street, Valletta - VLT 1103 Malta, US",
                         subscribe: "Subscribe",
-                        subscribeDescription: "Subscribe to our newsletter and be the first to know about our updates"
+                        subscribeDescription: "Subscribe to our newsletter and be the first to know about our updates",
+                        subAddress: "20 Phan Dang Luu street, Hai Chau District, Danang city, Vietnam",
                     },
+
                 }
             },
             vi: {
