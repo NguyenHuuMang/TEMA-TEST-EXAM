@@ -1,12 +1,13 @@
 # TEMA Test - Nguyen Huu Mang
 This project was bootstrapped with ReactJS, Typescript
+
 Link demo: https://mang1710.duckdns.org/
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start` / 'yarn dev'
+### `yarn start` / `yarn dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
